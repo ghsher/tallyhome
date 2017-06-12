@@ -1,0 +1,133 @@
+{%extends "layout.html"%}
+{%block content%}
+  <script>
+    $(document).ready(function() {
+      $(".form2").hide();
+      $("#vistype").change(function() {
+        $(".form2").hide();
+        $("#div_"+this.value).fadeIn();
+        $("#qhead").text("Now, write your Tally!")
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $("#vistype").change(function() {
+        $(".texta").hide(); $(".maybe").hide();
+        $("[name='ans1']").show(); $("[name='br1']").show();
+        $("[name='ans2']").show(); $("[name='br2']").show();
+        $("[name='ans3']").show(); $("[name='br3']").show();
+        $("[name='numans']").change(function() {
+          $(".texta").hide(); $(".maybe").hide();
+          for (var i=1; i <= this.value; i++) {
+            $("[name='ans"+i+"']").show(); $("[name='br"+i+"']").show();
+          }
+        });
+      });
+    });
+    //smol issue: when going back and forth between bar and pie charts, numbers function funny
+  </script>
+  <div class="container">
+    <div class="block" id="mainform">
+      <h3 id="qhead">First, choose your visualization...</h3>
+      <select id="vistype">
+        <option disabled selected value> Select a Visualization Type </option>
+        <option id="type_scatter" value="scatter">Scatter Plot</option>
+        <option id="type_pie" value="pie">Pie Chart</option>
+        <option id="type_bar" value="bar">Bar Chart</option>
+        <option id="type_histo" value="histo">Histogram</option>
+      </select>
+      <div class="form2" id="div_scatter">
+        <form action="{{url_for('success')}}" method="post">
+          <input type="hidden" name="vistype" value="scatter">
+          <input type="text" class= "subq" name="xq" placeholder="Input your x-axis's question...">
+          <input type="text" class= "subq" name="yq" placeholder="Input your y-axis's question...">
+          <input type="text" class= "subq" name="xaxis" placeholder="Input your x-axis's label...">
+          <input type="text" class= "subq" name="yaxis" placeholder="Input your y-axis's label...">
+          <p>
+            Min X: <input type="number" class= "subnum" name="xmin" value=0>
+            Max X: <input type="number" class= "subnum" name="xmax" value=100>
+            Step X: <input type="number" class= "subnum" name="xstep" value=1><br>
+            Min Y: <input type="number" class= "subnum" name="ymin" value=0>
+            Max Y: <input type="number" class= "subnum" name="ymax" value=100>
+            Step Y: <input type="number" class= "subnum" name="ystep" value=1>
+          </p>
+          <button type="submit">Next --></button>
+        </form>
+      </div>
+
+      <div class="form2" id="div_pie">
+        <form action="{{url_for('success')}}" method="post">
+          <input type="hidden" name="vistype" value="pie">
+          <input type="text" name="question" class="textq" placeholder="Write your question here...">
+          <br>How many options will there be?<input type="number" name="numans" class="subnum" value=3 min=2 max=10>
+          <br class="maybe" name="br1">
+          <input type="text" name="ans1" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br2">
+          <input type="text" name="ans2" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br3">
+          <input type="text" name="ans3" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br4">
+          <input type="text" name="ans4" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br5">
+          <input type="text" name="ans5" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br6">
+          <input type="text" name="ans6" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br7">
+          <input type="text" name="ans7" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br8">
+          <input type="text" name="ans8" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br9">
+          <input type="text" name="ans9" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br10">
+          <input type="text" name="ans10" class="texta" placeholder="Write an option here...">
+          <button type="submit">Next --></button>
+        </form>
+      </div>
+
+      <div class="form2" id="div_bar">
+        <form action="{{url_for('success')}}" method="post">
+          <input type="hidden" name="vistype" value="bar">
+          <input type="text" name="question" class="textq" placeholder="Write your question here...">
+          <br>How many options will there be?<input type="number" name="numans" class="subnum" value=3 min=2 max=10>
+          <br class="maybe" name="br1">
+          <input type="text" name="ans1" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br2">
+          <input type="text" name="ans2" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br3">
+          <input type="text" name="ans3" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br4">
+          <input type="text" name="ans4" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br5">
+          <input type="text" name="ans5" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br6">
+          <input type="text" name="ans6" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br7">
+          <input type="text" name="ans7" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br8">
+          <input type="text" name="ans8" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br9">
+          <input type="text" name="ans9" class="texta" placeholder="Write an option here...">
+          <br class="maybe" name="br10">
+          <input type="text" name="ans10" class="texta" placeholder="Write an option here...">
+          <button type="submit">Next --></button>
+        </form>
+      </div>
+
+      <div class="form2" id="div_histo">
+        <form action="{{url_for('success')}}" method="post">
+          <input type="hidden" name="vistype" value="histo">
+          <input type="text" name="q" class="subq" placeholder="Write your question here...">
+          <br><input type="text" name="q" class="subq" placeholder="Write the label for the x-axis...">
+          <p>
+            What's the minimum input? <input type="number" class= "subnum" name="min" value=0>
+            And maximum? <input type="number" class= "subnum" name="max" value=100><br>
+            To what accuracy can the user input? (type for decimals) <input type="number" class= "subnum" name="step" value=1><br>
+            How many ranges do you want to present? <input type="number" class= "subnum" name="ranges" value=10 min=5 max=20>
+          </p>
+          <button type="submit">Next --></button>
+        </form>
+      </div>
+    </div>
+  </div>
+{%endblock%}

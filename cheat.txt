@@ -1,0 +1,8 @@
+CHEAT LIST:
+qsandas:
+  scatter:  0-xq   1-xaxis   2-xmin    3-xmax    4-xstep
+            5-yq   6-yaxis   7-ymin    8-ymax    9-ystep
+  pie, bar: 0-q    1-numans  2+-answers
+  histo:    0-q    1-min     2-max     3-step    4-numbins
+results:
+  scatter:  0-array of x-values   1-array of y-values

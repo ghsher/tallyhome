@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #444;
+}
+
+header {
+  background-color: #87C8FF;
+  height: 40px;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+header h1.logo {
+  padding: 0.1em;
+  margin: 0 0 0.2em 0.2em;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  float: left;
+}
+
+header h1.logo:hover {
+  color: #59f;
+  text-decoration: none;
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+}
+
+div.block {
+  width: 60%;
+  margin:auto;
+  padding: 10px 20px 10px 20px;
+  background-color: #E6E6FA;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+  text-align: center;
+}
+
+div.form2 {
+  width: 80%;
+  margin:auto;
+  padding: 0 0 0 0;
+  background-color: #E6E6FA;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+  text-align: center;
+}
+
+div.form3 {
+  width: 80%;
+  margin:auto;
+  padding: 0 0 0 0;
+  background-color: #E6E6FA;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: 100;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #777;
+}
+
+label {
+  color: #999;
+}
+label:hover {
+  opacity: 1;
+  color: #777;
+  font-weight: bold;
+}
+
+input[type=radio] {
+    margin: 8px 0 0 auto;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 14px 0 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    font-family: "Montserrat", "Raleway", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+input[type=text].texta {
+    width: 80%;
+}
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Montserrat", "Raleway", Helvetica, Arial, sans-serif;
+    box-sizing:border-box
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+select {
+  width: 100%;
+  background-color: #fff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-family: "Montserrat", "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+#vistype {
+  padding: 18px 20px;
+  font-size: 18px;
+}
+input[type=number] {
+  width: 10%;
+  padding: 12px 8px;
+  margin: 8px 24px 8px 8px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Montserrat", "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
