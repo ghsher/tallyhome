@@ -44,6 +44,10 @@ div.block {
   text-align: center;
 }
 
+div.bk-root {
+  width: 50%;
+  margin:auto;
+}
 div.form2 {
   width: 80%;
   margin:auto;
@@ -76,6 +80,10 @@ h3 {
   color: #777;
 }
 
+h4 {
+  font-size: 1.6em;
+  margin-bottom: 4px;
+}
 label {
   color: #999;
 }
