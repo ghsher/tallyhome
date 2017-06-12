@@ -6,3 +6,7 @@ qsandas:
   histo:    0-q    1-min     2-max     3-step    4-numbins
 results:
   scatter:  0-array of x-values   1-array of y-values
+  pie, bar: X-the index of the answer voted for
+  histo:    X-a value inputted
+  hold on to:
+  //$(".pbans").html("<label for='pbans"+i+"'>"+"{{qsandas[i+2]}}"+"</label><input type='radio' name='pbans' id='pbans"+i+"' value="+i+"><br>");

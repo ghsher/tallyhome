@@ -3,92 +3,85 @@
 
 <script>
   $(document).ready(function() {
+    //Show correct form based on vis type
     $(".form3").hide();
     $("#div_"+"{{vistype}}").show();
-  });
-</script>
-<script>
-  var qsas = ["{{ ','.join(qsandas) }}"];
-  for (var i=0; i <= qsas.length; i++) {
-    alert(qsas[i])
-  }
-  $(document).ready(function() {
-    if ("{{vistype}}" == "pie"||"{{vistype}}" == "bar") {
-      for (var i=0; i <= qsas[1]; i++) {
-        $(".pbans").html("<label for='pbans"+i+"'>"+qsas[i+2]+"</label><input type='radio' name='pbans' id='pbans"+i+"' value="+i+"><br>");
+
+    //Hide extra answers where applicable
+    if ("{{vistype}}" == "pie") {
+      for (var i="{{qsandas[1]}}"; i < 10; i++) {
+        $("#pans"+i).hide();
+      }
+    }
+    if ("{{vistype}}" == "bar") {
+      for (var i="{{qsandas[1]}}"; i < 10; i++) {
+        $("#bans"+i).hide();
       }
     }
   });
-  //smol issue: when going back and forth between bar and pie charts, numbers function funny
 </script>
+
 <div class="container">
   <div class="block">
-    <h3 id="changethis"> TALLY #{{id}} QUESTIONS. TYPE {{vistype}}.</h3>
     <div class="form3" id="div_scatter">
-      <form action="/results" method="post">
+      <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
         <p>
-          {{qsandas[0]}}
+          <h4>{{qsandas[0]}}</h4>
           <input type="number" class= "subnum" name="x" min={{qsandas[2]}} max={{qsandas[3]}} step={{qsandas[4]}} value={{qsandas[2]}}>
-          <br>{{qsandas[5]}}
-          <input type="number" class= "subnum" name="x" min={{qsandas[7]}} max={{qsandas[8]}} step={{qsandas[9]}} value={{qsandas[7]}}>
+          <br><h4>{{qsandas[5]}}</h4>
+          <input type="number" class= "subnum" name="y" min={{qsandas[7]}} max={{qsandas[8]}} step={{qsandas[9]}} value={{qsandas[7]}}>
         </p>
         <button type="submit">Submit!</button>
       </form>
     </div>
 
     <div class="form3" id="div_pie">
-      <form action="/results" method="post">
+      <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
         <p>
-          {{qsandas[0]}}
-          <div class="pbans">
-          </div>
+          <h3>{{qsandas[0]}}</h3>
+          <label for='pans0'>{{qsandas[2]}} </label><input type='radio' name='pans' id='pans0' value=0><br>
+          <label for='pans1'>{{qsandas[3]}} </label><input type='radio' name='pans' id='pans1' value=1><br>
+          <label for='pans2'>{{qsandas[4]}} </label><input type='radio' name='pans' id='pans2' value=2><br>
+          <label for='pans3'>{{qsandas[5]}} </label><input type='radio' name='pans' id='pans3' value=3><br>
+          <label for='pans4'>{{qsandas[6]}} </label><input type='radio' name='pans' id='pans4' value=4><br>
+          <label for='pans5'>{{qsandas[7]}} </label><input type='radio' name='pans' id='pans5' value=5><br>
+          <label for='pans6'>{{qsandas[8]}} </label><input type='radio' name='pans' id='pans6' value=6><br>
+          <label for='pans7'>{{qsandas[9]}} </label><input type='radio' name='pans' id='pans7' value=7><br>
+          <label for='pans8'>{{qsandas[10]}} </label><input type='radio' name='pans' id='pans8' value=8><br>
+          <label for='pans9'>{{qsandas[11]}} </label><input type='radio' name='pans' id='pans9' value=9><br>
         </p>
         <button type="submit">Submit!</button>
       </form>
     </div>
 
     <div class="form3" id="div_bar">
-      <form action="/results" method="post">
+      <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
-        <input type="text" name="question" class="textq" placeholder="Write your question here...">
-        <br>How many options will there be?<input type="number" name="numans" class="subnum" value=3 min=2 max=10>
-        <br class="maybe" name="br1">
-        <input type="text" name="ans1" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br2">
-        <input type="text" name="ans2" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br3">
-        <input type="text" name="ans3" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br4">
-        <input type="text" name="ans4" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br5">
-        <input type="text" name="ans5" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br6">
-        <input type="text" name="ans6" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br7">
-        <input type="text" name="ans7" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br8">
-        <input type="text" name="ans8" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br9">
-        <input type="text" name="ans9" class="texta" placeholder="Write an option here...">
-        <br class="maybe" name="br10">
-        <input type="text" name="ans10" class="texta" placeholder="Write an option here...">
-        <button type="submit">Next --></button>
+        <p>
+          <h3>{{qsandas[0]}}</h3>
+          <label for='bans0'>{{qsandas[2]}} </label><input type='radio' name='bans' id='bans0' value=0><br>
+          <label for='bans1'>{{qsandas[3]}} </label><input type='radio' name='bans' id='bans1' value=1><br>
+          <label for='bans2'>{{qsandas[4]}} </label><input type='radio' name='bans' id='bans2' value=2><br>
+          <label for='bans3'>{{qsandas[5]}} </label><input type='radio' name='bans' id='bans3' value=3><br>
+          <label for='bans4'>{{qsandas[6]}} </label><input type='radio' name='bans' id='bans4' value=4><br>
+          <label for='bans5'>{{qsandas[7]}} </label><input type='radio' name='bans' id='bans5' value=5><br>
+          <label for='bans6'>{{qsandas[8]}} </label><input type='radio' name='bans' id='bans6' value=6><br>
+          <label for='bans7'>{{qsandas[9]}} </label><input type='radio' name='bans' id='bans7' value=7><br>
+          <label for='bans8'>{{qsandas[10]}} </label><input type='radio' name='bans' id='bans8' value=8><br>
+          <label for='bans9'>{{qsandas[11]}} </label><input type='radio' name='bans' id='bans9' value=9><br>
+        </p>
+        <button type="submit">Submit!</button>
       </form>
     </div>
 
     <div class="form3" id="div_histo">
-      <form action="/results" method="post">
+      <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
-        <input type="text" name="q" class="subq" placeholder="Write your question here...">
-        <br><input type="text" name="q" class="subq" placeholder="Write the label for the x-axis...">
-        <p>
-          What's the minimum input? <input type="number" class= "subnum" name="min" value=0>
-          And maximum? <input type="number" class= "subnum" name="max" value=100><br>
-          To what accuracy can the user input? (type for decimals) <input type="number" class= "subnum" name="step" value=1><br>
-          How many ranges do you want to present? <input type="number" class= "subnum" name="ranges" value=10 min=5 max=20>
-        </p>
+        <input type="hidden" name="numbins" value={{qsandas[4]}}>
+        <h3>{{qsandas[0]}}</h3>
+        <input type="number" name="histo_input" class="subnum" min={{qsandas[1]}} max={{qsandas[2]}} step={{qsandas[3]}}>
         <button type="submit">Next --></button>
       </form>
     </div>
