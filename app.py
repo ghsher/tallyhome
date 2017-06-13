@@ -141,5 +141,5 @@ def show_tally_results(tally_id):
 
 # Run
 if __name__ == '__main__':
-    app.debug=True
+    app.debug=False
     app.run()
