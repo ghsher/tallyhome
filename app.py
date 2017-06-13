@@ -136,7 +136,7 @@ def show_tally_results(tally_id):
     script1, div1 = components(tally)
     cdn_js=CDN.js_files[0]
     cdn_css=CDN.css_files[0]
-    return render_template("tally_results.html", id=tally_id,
+    return render_template("tally_results.html", id=tally_id, title=df.qsandas_[0]
      embedscript=script1, embeddiv=div1, cdncss=cdn_css, cdnjs=cdn_js)
 
 # Run
