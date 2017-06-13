@@ -10,12 +10,12 @@
     //Hide extra answers where applicable
     if ("{{vistype}}" == "pie") {
       for (var i="{{qsandas[1]}}"; i < 10; i++) {
-        $("#pans"+i).hide(); $("#pbr"+i).hide();
+        $("#pli"+i).hide();
       }
     }
     if ("{{vistype}}" == "bar") {
       for (var i="{{qsandas[1]}}"; i < 10; i++) {
-        $("#bans"+i).hide(); $("#bbr"+i).hide();
+        $("#bli"+i).hide();
       }
     }
   });
@@ -26,12 +26,10 @@
     <div class="form3" id="div_scatter">
       <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
-        <p>
-          <h4>{{qsandas[0]}}</h4>
-          <input type="number" class= "subnum" name="x" min={{qsandas[2]}} max={{qsandas[3]}} step={{qsandas[4]}} value={{qsandas[2]}}>
-          <br><h4>{{qsandas[5]}}</h4>
-          <input type="number" class= "subnum" name="y" min={{qsandas[7]}} max={{qsandas[8]}} step={{qsandas[9]}} value={{qsandas[7]}}>
-        </p>
+        <h4>{{qsandas[0]}}</h4>
+        <input type="number" class= "subnum" name="x" min={{qsandas[2]}} max={{qsandas[3]}} step={{qsandas[4]}} value={{qsandas[2]}}>
+        <br><h4>{{qsandas[5]}}</h4>
+        <input type="number" class= "subnum" name="y" min={{qsandas[7]}} max={{qsandas[8]}} step={{qsandas[9]}} value={{qsandas[7]}}>
         <button type="submit">Submit!</button>
       </form>
     </div>
@@ -39,19 +37,59 @@
     <div class="form3" id="div_pie">
       <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
-        <p>
-          <h4>{{qsandas[0]}}</h4>
-          <label for='pans0'>{{qsandas[2]}} </label><input type='radio' name='pans' id='pans0' value=0><br id="pbr0">
-          <label for='pans1'>{{qsandas[3]}} </label><input type='radio' name='pans' id='pans1' value=1><br id="pbr1">
-          <label for='pans2'>{{qsandas[4]}} </label><input type='radio' name='pans' id='pans2' value=2><br id="pbr2">
-          <label for='pans3'>{{qsandas[5]}} </label><input type='radio' name='pans' id='pans3' value=3><br id="pbr3">
-          <label for='pans4'>{{qsandas[6]}} </label><input type='radio' name='pans' id='pans4' value=4><br id="pbr4">
-          <label for='pans5'>{{qsandas[7]}} </label><input type='radio' name='pans' id='pans5' value=5><br id="pbr5">
-          <label for='pans6'>{{qsandas[8]}} </label><input type='radio' name='pans' id='pans6' value=6><br id="pbr6">
-          <label for='pans7'>{{qsandas[9]}} </label><input type='radio' name='pans' id='pans7' value=7><br id="pbr7">
-          <label for='pans8'>{{qsandas[10]}} </label><input type='radio' name='pans' id='pans8' value=8><br id="pbr8">
-          <label for='pans9'>{{qsandas[11]}} </label><input type='radio' name='pans' id='pans9' value=9><br id="pbr9">
-        </p>
+        <h4>{{qsandas[0]}}</h4>
+        <ul>
+          <li id="pli0">
+            <input type='radio' name='pans' id='pans0' value=0>
+            <label for='pans0'>{{qsandas[2]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli1">
+            <input type='radio' name='pans' id='pans1' value=1>
+            <label for='pans1'>{{qsandas[3]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli2">
+            <input type='radio' name='pans' id='pans2' value=2>
+            <label for='pans2'>{{qsandas[4]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli3">
+            <input type='radio' name='pans' id='pans3' value=3>
+            <label for='pans3'>{{qsandas[5]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli4">
+            <input type='radio' name='pans' id='pans4' value=4>
+            <label for='pans4'>{{qsandas[6]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli5">
+            <input type='radio' name='pans' id='pans5' value=5>
+            <label for='pans5'>{{qsandas[7]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli6">
+            <input type='radio' name='pans' id='pans6' value=6>
+            <label for='pans6'>{{qsandas[8]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli7">
+            <input type='radio' name='pans' id='pans7' value=7>
+            <label for='pans7'>{{qsandas[9]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli8">
+            <input type='radio' name='pans' id='pans8' value=8>
+            <label for='pans8'>{{qsandas[10]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="pli9">
+            <input type='radio' name='pans' id='pans9' value=9>
+            <label for='pans9'>{{qsandas[11]}} </label>
+            <div class="check"></div><br>
+          </li>
+        </ul>
         <button type="submit">Submit!</button>
       </form>
     </div>
@@ -59,19 +97,59 @@
     <div class="form3" id="div_bar">
       <form action="/{{id}}/results" method="post">
         <input type="hidden" name="tally_id" value={{id}}>
-        <p>
-          <h4>{{qsandas[0]}}</h4>
-          <label for='bans0'>{{qsandas[2]}} </label><input type='radio' name='bans' id='bans0' value=0><br id="bbr0">
-          <label for='bans1'>{{qsandas[3]}} </label><input type='radio' name='bans' id='bans1' value=1><br id="bbr1">
-          <label for='bans2'>{{qsandas[4]}} </label><input type='radio' name='bans' id='bans2' value=2><br id="bbr2">
-          <label for='bans3'>{{qsandas[5]}} </label><input type='radio' name='bans' id='bans3' value=3><br id="bbr3">
-          <label for='bans4'>{{qsandas[6]}} </label><input type='radio' name='bans' id='bans4' value=4><br id="bbr4">
-          <label for='bans5'>{{qsandas[7]}} </label><input type='radio' name='bans' id='bans5' value=5><br id="bbr5">
-          <label for='bans6'>{{qsandas[8]}} </label><input type='radio' name='bans' id='bans6' value=6><br id="bbr6">
-          <label for='bans7'>{{qsandas[9]}} </label><input type='radio' name='bans' id='bans7' value=7><br id="bbr7">
-          <label for='bans8'>{{qsandas[10]}} </label><input type='radio' name='bans' id='bans8' value=8><br id="bbr8">
-          <label for='bans9'>{{qsandas[11]}} </label><input type='radio' name='bans' id='bans9' value=9><br id="bbr9">
-        </p>
+        <h4>{{qsandas[0]}}</h4>
+        <ul>
+          <li id="bli0">
+            <input type='radio' name='bans' id='bans0' value=0>
+            <label for='bans0'>{{qsandas[2]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli1">
+            <input type='radio' name='bans' id='bans1' value=1>
+            <label for='bans1'>{{qsandas[3]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli2">
+            <input type='radio' name='bans' id='bans2' value=2>
+            <label for='bans2'>{{qsandas[4]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli3">
+            <input type='radio' name='bans' id='bans3' value=3>
+            <label for='bans3'>{{qsandas[5]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli4">
+            <input type='radio' name='bans' id='bans4' value=4>
+            <label for='bans4'>{{qsandas[6]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli5">
+            <input type='radio' name='bans' id='bans5' value=5>
+            <label for='bans5'>{{qsandas[7]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli6">
+            <input type='radio' name='bans' id='bans6' value=6>
+            <label for='bans6'>{{qsandas[8]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli7">
+            <input type='radio' name='bans' id='bans7' value=7>
+            <label for='bans7'>{{qsandas[9]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli8">
+            <input type='radio' name='bans' id='bans8' value=8>
+            <label for='bans8'>{{qsandas[10]}} </label>
+            <div class="check"></div><br>
+          </li>
+          <li id="bli9">
+            <input type='radio' name='bans' id='bans9' value=9>
+            <label for='bans9'>{{qsandas[11]}} </label>
+            <div class="check"></div><br>
+          </li>
+        </ul>
         <button type="submit">Submit!</button>
       </form>
     </div>

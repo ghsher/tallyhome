@@ -1,10 +1,11 @@
 {%extends "layout.html"%}
 {%block content%}
+<meta http-equiv="refresh" content="0; url=./{{id}}" />
 <div class="container">
   <div class="block">
-    <h3> Congratulations! Click the link below to go to your Tally.</h3>
-    <a id="redirectlink" href="./{{id}}">LINK</a>
-    <!-->IMPLEMENT A REDIRECT TO /{{id}}</!-->
+    <h3> Congratulations!</h3>
+    <h4>If your browser doesn't redirect, click the link below to go to your Tally.</h4>
+    <a id="redirectlink" href="./{{id}}">REDIRECT</a>
   </div>
 </div>
 {%endblock%}
