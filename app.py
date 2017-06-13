@@ -10,7 +10,7 @@ from arraytype import MutableList
 from numpy import pi
 
 app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"]="postgresql://postgres:postpass123@localhost/tallyhome"
+app.config["SQLALCHEMY_DATABASE_URI"]="postgres://lirwqhqvzsxzdb:d4ed5b2950414d1ef2fb4bc43e52c35d50324cb15ca38e01184ddfe810f79e9e@ec2-107-20-186-238.compute-1.amazonaws.com:5432/dcmi0jn734lorb?sslmode=require"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
 db=SQLAlchemy(app)
 
