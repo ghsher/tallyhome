@@ -24,7 +24,7 @@ header h1.logo {
 }
 
 header h1.logo:hover {
-  color: #59f;
+  color: #fde724;
   text-decoration: none;
 }
 
@@ -38,6 +38,17 @@ div.block {
   margin:auto;
   padding: 10px 20px 10px 20px;
   background-color: #E6E6FA;
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+  text-align: center;
+}
+
+div.block2 {
+  width: 60%;
+  margin:auto;
+  padding: 10px 20px 10px 20px;
+  background-color: #FFF;
   -webkit-border-radius: 12px;
      -moz-border-radius: 12px;
           border-radius: 12px;
