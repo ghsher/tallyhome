@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from bokeh.plotting import figure, output_file, show
-from bokeh.charts import Donut, Bar, Histogram, show
+from bkcharts import Donut, Bar, Histogram, show
 from bokeh.embed import components
 from bokeh.resources import CDN
 from bokeh.palettes import viridis
